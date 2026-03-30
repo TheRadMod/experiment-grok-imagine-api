@@ -116,7 +116,8 @@ This ensures accuracy for the specific version.
   social media assets, or style variations at scale
 
 ## GitHub Repository
-<!-- Fill in after gh repo create -->
+- Repository: https://github.com/TheRadMod/experiment-grok-imagine-api
+- Visibility: public
 
 ## Learnings
 <!-- Updated as scripts are built and run. Record insights NOT obvious from docs. -->
