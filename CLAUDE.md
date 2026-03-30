@@ -120,7 +120,12 @@ This ensures accuracy for the specific version.
 - Visibility: public
 
 ## Learnings
-<!-- Updated as scripts are built and run. Record insights NOT obvious from docs. -->
+
+- **Generation time:** ~57s for a 5-second 480p video. Budget ~1 minute per short clip.
+- **SDK response shape:** `client.video.generate()` returns an object with `.url` directly (not `.video.url`).
+- **File sizes:** 5s 480p video = ~4.4 MB.
+- **SDK polling:** Works out of the box with `timeout` and `interval` as `timedelta` objects. No manual polling needed.
+- **Env var:** `XAI_API_KEY` must be set. SDK auto-reads it — no need to pass explicitly to `Client()`.
 
 ## Status
 - Created: 2026-03-30
