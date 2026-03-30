@@ -1,1 +1,3 @@
 # Dependencies for this experiment
+xai-sdk
+python-dotenv
