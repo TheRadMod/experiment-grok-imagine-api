@@ -113,17 +113,7 @@ Disable with: `XAI_SDK_DISABLE_TRACING=1`
 - Video URLs are ephemeral — download promptly
 - Content subject to moderation policies
 
-## Environment Variable Note
+## Environment Variable
 
-The user's API key is stored as `GROK_IMAGINE_API_KEY`. The SDK expects
-`XAI_API_KEY`, so scripts should map accordingly:
-
-```python
-import os
-os.environ["XAI_API_KEY"] = os.environ.get("GROK_IMAGINE_API_KEY", "")
-```
-
-Or pass explicitly:
-```python
-client = Client(api_key=os.environ.get("GROK_IMAGINE_API_KEY"))
-```
+API key is stored as `XAI_API_KEY`. The SDK auto-detects this — no manual
+mapping needed.

@@ -76,7 +76,7 @@ This ensures accuracy for the specific version.
 - Docstring: Each script starts with a module docstring explaining the concept
 - Main guard: All scripts use `if __name__ == "__main__"`
 - run_all script: No
-- API key: Read from `GROK_IMAGINE_API_KEY` environment variable, mapped to SDK's expected format
+- API key: Read from `XAI_API_KEY` environment variable (auto-detected by SDK)
 - Dependencies managed via `requirements.txt`
 
 ## Progression Plan
@@ -98,7 +98,7 @@ This ensures accuracy for the specific version.
 
 - Python 3.10+
 - xAI SDK: `uv add xai-sdk`
-- API key set as environment variable: `export GROK_IMAGINE_API_KEY="your_key"`
+- API key set as environment variable: `export XAI_API_KEY="your_key"`
 - xAI account with credits loaded: https://console.x.ai
 - Install dependencies: `uv pip install -r requirements.txt`
 
