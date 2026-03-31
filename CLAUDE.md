@@ -14,6 +14,10 @@ This is an auto-mode experiment. Claude should continue executing without
 asking for permissions at each step. Build, run, verify, and move on. Only
 stop to ask if something fails or if a genuine design decision needs input.
 
+When told to move to a script, execute the full cycle autonomously:
+write script, run it, capture learnings, update this CLAUDE.md, and commit
+to git. Do NOT pause for approvals between steps.
+
 ## Technology Version
 
 - Technology: Grok Imagine API (xAI)
@@ -126,6 +130,14 @@ This ensures accuracy for the specific version.
 - **File sizes:** 5s 480p video = ~4.4 MB.
 - **SDK polling:** Works out of the box with `timeout` and `interval` as `timedelta` objects. No manual polling needed.
 - **Env var:** `XAI_API_KEY` must be set. SDK auto-reads it — no need to pass explicitly to `Client()`.
+- **Duration scaling:** Gen time is sub-linear up to 10s (~23s), jumps at 15s (~45s). File size scales linearly (~0.2 MB/sec at 480p 16:9).
+- **Aspect ratio:** No significant effect on generation time. Fewer pixels = smaller files (1:1 < 9:16 < 16:9).
+- **Resolution:** 720p roughly doubles both generation time and file size vs 480p.
+- **Generation time variance:** Same parameters (5s, 480p) can range from ~17s to ~57s across runs — likely server load dependent.
+- **SDK image module:** `client.image.sample()` — module is `image` (singular), method is `sample` (not `generate`).
+- **Image-to-video parameter:** `image_url` (not `image`) on `client.video.generate()`. Accepts URL or `data:image/png;base64,...` data URI.
+- **URL vs base64 input:** No meaningful performance difference (~18s vs ~19s). Both are valid; base64 avoids dependency on temporary URLs.
+- **Image generation speed:** ~5s per image — an order of magnitude faster than video generation.
 
 ## Status
 - Created: 2026-03-30
