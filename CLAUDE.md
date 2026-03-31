@@ -138,6 +138,10 @@ This ensures accuracy for the specific version.
 - **Image-to-video parameter:** `image_url` (not `image`) on `client.video.generate()`. Accepts URL or `data:image/png;base64,...` data URI.
 - **URL vs base64 input:** No meaningful performance difference (~18s vs ~19s). Both are valid; base64 avoids dependency on temporary URLs.
 - **Image generation speed:** ~5s per image — an order of magnitude faster than video generation.
+- **Reference images parameter:** SDK uses `reference_image_urls` (not `reference_images` as in the REST API docs). Accepts a list of URL strings.
+- **Reference image placeholders:** `<IMAGE_1>`, `<IMAGE_2>` in the prompt target specific reference images by position — useful for assigning different style roles to each image.
+- **Reference images vs control:** No significant impact on generation time or file size — the style guidance is essentially "free" in terms of performance.
+- **Reference image influence is uneven:** In multi-ref tests, the first reference image (watercolor sunset) had a pronounced effect on the video style, while the second (ukiyo-e waves) had minimal influence. Style transfer strength may depend on how closely the reference style aligns with the prompt's subject matter, or the model may weight earlier images more heavily.
 
 ## Status
 - Created: 2026-03-30
