@@ -144,6 +144,8 @@ This ensures accuracy for the specific version.
 - **Reference image influence is uneven:** In multi-ref tests, the first reference image (watercolor sunset) had a pronounced effect on the video style, while the second (ukiyo-e waves) had minimal influence. Style transfer strength may depend on how closely the reference style aligns with the prompt's subject matter, or the model may weight earlier images more heavily.
 - **Video editing is slow:** Editing (~57s) takes ~3x longer than generating a fresh 5s video (~18s). Budget accordingly when building editing workflows.
 - **Video editing changes file size:** Style edits that simplify visual detail (e.g., watercolor) can dramatically reduce file size (1.3 MB vs 5.2 MB source). Content edits that add elements stay closer to original size.
+- **Video extension output includes source:** The extended video contains the original source + new footage concatenated. A 5s source extended by 5s produces a ~10s video (4.58 MB), not just the 5s extension clip.
+- **Extension is faster than editing:** Extension (~35-41s) is faster than editing (~57s) but slower than fresh generation (~19s for 5s). Extension gen time scales sub-linearly with duration (5s ext: 35s, 10s ext: 41s).
 
 ## Status
 - Created: 2026-03-30
